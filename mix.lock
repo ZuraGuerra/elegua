@@ -1,0 +1,3 @@
+%{"comeonin": {:hex, :comeonin, "2.1.0"},
+  "mailgun": {:hex, :mailgun, "0.1.2"},
+  "poison": {:hex, :poison, "1.5.2"}}
