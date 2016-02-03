@@ -1,0 +1,2 @@
+defmodule Elegua do
+end
