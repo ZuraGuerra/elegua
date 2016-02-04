@@ -10,4 +10,8 @@ defmodule Elegua do
 	def register(changeset) do
 		Register.create(changeset)
 	end
+
+	def register(changeset, :verify) do
+		Register.create(changeset, :verify)
+	end
 end

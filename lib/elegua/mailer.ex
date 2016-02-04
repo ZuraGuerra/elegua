@@ -5,4 +5,5 @@ defmodule Elegua.Mailer do
 	  key: Application.get_env(:mailgun, :key)
 
 	
+
 end

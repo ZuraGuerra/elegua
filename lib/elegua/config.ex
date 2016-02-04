@@ -20,11 +20,11 @@ defmodule Elegua.Config do
 		@password_field
 	end
 
-	def verification_token do
-		@verification_token
+	def verification_token_field do
+		@verification_token_field
 	end
 
-	def is_verified do
-		@is_verified
+	def is_verified_field do
+		@is_verified_field
 	end
 end
