@@ -9,7 +9,10 @@ config :elegua, # These are the default values, but imagine a model like:
   app_repo: YourApp.Repo, # MyApp.Repo
   password_field: :password, # :passphrase
   username_field: :username, # :user
-  email_field: :email # :mail
+  email_field: :email, # :mail
+  # these two are only needed if you'd like to verify users' email
+  verification_token_field: :verification_token, # :token
+  is_verified_field: :is_verified # :active
 ```
 
 ## Use
