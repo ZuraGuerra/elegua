@@ -20,7 +20,7 @@ defmodule MyApp.Registration do
 
   def create(params) do
     changeset =
-      Elegua.changeset(%MyApp.MyUser{}, params)
+      Elegua.changeset(%MyUser{}, params)
       |> MyUser.another_changeset(params)
       # And so on ad infinitum
 
@@ -32,7 +32,7 @@ defmodule MyApp.Registration do
     end
 
   end
-  
+
 end
 ```
 
