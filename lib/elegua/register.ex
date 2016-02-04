@@ -13,5 +13,4 @@ defmodule Elegua.Register do
   	|> Config.app_repo.insert
   end
 
-
 end

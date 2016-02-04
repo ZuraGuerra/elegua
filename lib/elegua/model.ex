@@ -1,4 +1,4 @@
-defmodule Elegua.Changeset do
+defmodule Elegua.Model do
   import Ecto.Changeset
 
   alias Elegua.Config
