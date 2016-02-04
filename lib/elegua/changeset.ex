@@ -1,9 +1,9 @@
 defmodule Elegua.Changeset do
   import Ecto.Changeset
 
-  alias Elegua.Register
+  alias Elegua.Config
 
-  @required_fields Register.required_fields
+  @required_fields Config.required_fields
   @optional_fields
 
   def changeset(user, params \\ :empty) do
