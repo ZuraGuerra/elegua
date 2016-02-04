@@ -12,6 +12,26 @@ config :elegua, # These are the default values, but imagine a model like:
   email_field: :email # :mail
 ```
 
+## Use
+### Registration
+```elixir
+defmodule MyApp.Registration do
+  alias MyApp.MyUser
+  def create(params) do
+    changeset =
+      Elegua.changeset(%MyApp.MyUser{}, params)
+      |> MyUser.another_changeset(params)
+
+    if changeset.valid? do
+      {:ok, user} = Elegua.register(changeset)
+      # Other happy things
+    else
+      # Handle error
+    end
+  end
+end
+```
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
