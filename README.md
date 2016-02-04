@@ -43,7 +43,7 @@ end
 defmodule MyApp.Registration do
   alias MyApp.MyUser
 
-  @from no-reply@myawesomeapp.com
+  @from "no-reply@myawesomeapp.com"
   @subject "Welcome to MyAwesomeApp!"
 
   def create(params) do
@@ -60,8 +60,8 @@ defmodule MyApp.Registration do
       content = "Your verification token: #{verification_token}"
       Elegua.send_verification_email(user_email, @from, @subject, {:text, content})
       # OR you can send HTML
-    # content = "<h2>Welcome to Phoenix!</h2>"
-    # Elegua.send_verification_email(user_email, @from, @subject, {:html, content})
+      # content = "<h2>Welcome to Phoenix!</h2>"
+      # Elegua.send_verification_email(user_email, @from, @subject, {:html, content})
 
       # IF you're using Phoenix, you can get your templates
       # rendered to string with `Phoenix.View.render_to_string`
