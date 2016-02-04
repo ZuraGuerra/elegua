@@ -17,10 +17,12 @@ config :elegua, # These are the default values, but imagine a model like:
 ```elixir
 defmodule MyApp.Registration do
   alias MyApp.MyUser
+
   def create(params) do
     changeset =
       Elegua.changeset(%MyApp.MyUser{}, params)
       |> MyUser.another_changeset(params)
+      # And so on ad infinitum
 
     if changeset.valid? do
       {:ok, user} = Elegua.register(changeset)
@@ -28,7 +30,9 @@ defmodule MyApp.Registration do
     else
       # Handle error
     end
+
   end
+  
 end
 ```
 
