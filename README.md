@@ -6,6 +6,7 @@ Add your model specifications to config.
 ```elixir
 config :elegua, # These are the default values, but imagine a model like:
   user_model: YourApp.User, # MyApp.Player
+  app_repo: YourApp.Repo, # MyApp.Repo
   password_field: :password, # :passphrase
   username_field: :username, # :user
   email_field: :email # :mail
