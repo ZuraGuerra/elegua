@@ -34,4 +34,19 @@ defmodule Elegua.Mixfile do
       {:ecto, "~> 1.1"}
     ]
   end
+
+  defp description do
+    """
+    User authentication with mail verification.
+    """
+  end
+
+  defp package do
+    [# These are the default files included in the package
+     files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+     maintainers: ["Zura Guerra"],
+     licenses: ["Apache 2.0"],
+     links: %{"GitHub" => "https://github.com/ZuraGuerra/elegua",
+              "Example app" => "http://github.com/ZuraGuerra/oduduwa"}]
+  end
 end
