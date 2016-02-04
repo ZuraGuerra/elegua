@@ -17,6 +17,7 @@ config :elegua, # These are the default values, but imagine a model like:
 
 ## Use
 ### Registration
+#### Simple DB creation
 ```elixir
 defmodule MyApp.Registration do
   alias MyApp.MyUser
@@ -35,7 +36,41 @@ defmodule MyApp.Registration do
     end
 
   end
+end
+```
+#### Email verification
+```elixir
+defmodule MyApp.Registration do
+  alias MyApp.MyUser
 
+  @from no-reply@myawesomeapp.com
+  @subject "Welcome to MyAwesomeApp!"
+
+  def create(params) do
+    changeset =
+      Elegua.changeset(%MyUser{}, params)
+      |> MyUser.another_changeset(params)
+    user_email = changeset.params["email"]
+
+    if changeset.valid? do
+      # Passing `verify` as an option
+      {:ok, user} = Elegua.register(changeset, :verify)
+      verification_token = changeset.params["verification_token"]
+
+      content = "Your verification token: #{verification_token}"
+      Elegua.send_verification_email(user_email, @from, @subject, {:text, content})
+      # OR you can send HTML
+    # content = "<h2>Welcome to Phoenix!</h2>"
+    # Elegua.send_verification_email(user_email, @from, @subject, {:html, content})
+
+      # IF you're using Phoenix, you can get your templates
+      # rendered to string with `Phoenix.View.render_to_string`
+      # https://hexdocs.pm/phoenix/Phoenix.View.html#render_to_string/3
+    else
+      # Handle error
+    end
+
+  end
 end
 ```
 
