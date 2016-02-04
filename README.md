@@ -56,7 +56,8 @@ defmodule MyApp.Registration do
       # Passing `verify` as an option
       {:ok, user} = Elegua.register(changeset, :verify)
       verification_token = changeset.params["verification_token"]
-
+      
+      # You must add the token to the content
       content = "Your verification token: #{verification_token}"
       Elegua.send_verification_email(user_email, @from, @subject, {:text, content})
       # OR you can send HTML
