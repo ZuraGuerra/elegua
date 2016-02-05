@@ -16,6 +16,10 @@ defmodule Elegua.Config do
 		@app_repo
 	end
 
+	def user_model do
+		@user_model
+	end
+
 	def password_field do
 		@password_field
 	end

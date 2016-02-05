@@ -3,7 +3,7 @@ defmodule Elegua.Mixfile do
 
   def project do
     [app: :elegua,
-     version: "0.1.3",
+     version: "0.2.3",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,

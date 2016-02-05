@@ -11,7 +11,8 @@ config :elegua, # These are the default values, but imagine a model like:
   username_field: :username, # :user
   email_field: :email, # :mail
   # these two are only needed if you'd like to verify users' email
-  verification_token_field: :verification_token, # :token
+  # and thi is the only field that must have this name
+  verification_token_field: :verification_token,
   is_verified_field: :is_verified # :active
 ```
 
@@ -70,7 +71,10 @@ defmodule MyApp.Registration do
     else
       # Handle error
     end
+  end
 
+  def verify(token) do
+    Elegua.verify(token)
   end
 end
 ```
