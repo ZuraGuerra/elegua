@@ -8,14 +8,14 @@ defmodule Elegua.Mailer do
 	  send_email to: to,
 	    from: from,
 	    subject: subject,
-	    text: text
+	    text: content
 	end
 
 	def send_verification_email(to, from, subject, {:html, content}) do
 	  send_email to: to,
 	    from: from,
 	    subject: subject,
-	    html: html
+	    html: content
 	end
 
 end
