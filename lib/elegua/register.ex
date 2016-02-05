@@ -1,5 +1,6 @@
 defmodule Elegua.Register do
   import Ecto.Changeset, only: [put_change: 3]
+  import Ecto.Query
   
   alias Elegua.Config
   alias Elegua.Password
@@ -38,7 +39,7 @@ defmodule Elegua.Register do
   end
 
   defp user_by_token(token) do
-  	@app_repo.one from user in Config.user_model
+  	@app_repo.one from user in Config.user_model,
   	where: user.verification_token == ^token
   end
 
