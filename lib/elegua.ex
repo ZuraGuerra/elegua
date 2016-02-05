@@ -19,4 +19,8 @@ defmodule Elegua do
 	def send_verification_mail(to, from, subject, {content_type, content}) do
 		Mailer.send_verification_mail(to, from, subject, {content_type, content})
 	end
+
+	def verify(token) do
+		Register.verify(token)
+	end
 end
