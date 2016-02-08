@@ -8,7 +8,7 @@ defmodule Elegua.Config do
 	end
 
 	def user_model do
-		Application.get_env(:elegua, :user, YourApp.User)
+		Application.get_env(:elegua, :user_model, YourApp.User)
 	end
 
 	def email_field do

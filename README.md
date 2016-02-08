@@ -51,7 +51,6 @@ defmodule MyApp.Registration do
     changeset =
       Elegua.changeset(%MyUser{}, params)
       |> MyUser.another_changeset(params)
-    user_email = changeset.params["email"]
 
     if changeset.valid? do
       # Passing `verify` as an option
