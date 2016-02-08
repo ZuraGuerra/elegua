@@ -4,6 +4,7 @@ defmodule Elegua.Register do
   
   alias Elegua.Config
   alias Elegua.Password
+  alias Elegua.Model
 
   @password_field Config.password_field
   @verification_token_field Config.verification_token_field
