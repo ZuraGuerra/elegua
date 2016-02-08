@@ -29,7 +29,7 @@ defmodule Elegua.Register do
   def verify(token) do
   	user = user_by_token(token)
   	params = %{Atom.to_string(@is_verified_field) => true}
-  	changeset = Config.user_model.verification_changeset(user, params)
+  	changeset = Model.verification_changeset(user, params)
     @app_repo.update(changeset)
   end
 
