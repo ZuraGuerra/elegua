@@ -11,14 +11,14 @@ defmodule Elegua.Authenticate do
     user = @app_repo.get_by(@user_model, email: downcase(email))
     case check_credentials(user, password) do
       true -> {:ok, user}
-      {:no_user, reason} -> {:error, :no_user}
+      :no_user -> {:error, :no_user}
       :else -> {:error, :invalid_password}
     end   
   end
 
   defp check_credentials(user, password) do
     case user do
-      nil -> {:error, :no_user}
+      nil -> :no_user
       :else -> Password.match_passwords(password, user)
     end
   end
