@@ -12,7 +12,7 @@ defmodule Elegua.Authenticate do
     case check_credentials(user, password) do
       true -> {:ok, user}
       :no_user -> {:error, :no_user}
-      :else -> {:error, :invalid_password}
+      _ -> {:error, :invalid_password}
     end   
   end
 
