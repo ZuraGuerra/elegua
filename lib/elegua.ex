@@ -16,5 +16,5 @@ defmodule Elegua do
   def verify(token), do: Register.verify(token)
 
   def authenticate({:email, email}, password), do: Auth.authenticate({:email, email}, password)
-  def login(email, password), do: Session.new(email, password)
+  def login(conn, email, password), do: Session.new(conn, email, password)
 end
