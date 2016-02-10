@@ -19,7 +19,7 @@ defmodule Elegua.Authenticate do
   defp check_credentials(user, password) do
     case user do
       nil -> :no_user
-      :else -> Password.match_passwords(password, user)
+      _ -> Password.match_passwords(password, user)
     end
   end
 end
