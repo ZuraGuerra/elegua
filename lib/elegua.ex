@@ -17,4 +17,5 @@ defmodule Elegua do
 
   def authenticate({:email, email}, password), do: Auth.authenticate({:email, email}, password)
   def login(conn, email, password), do: Session.new(conn, email, password)
+  def current_user(conn), do: Session.current_user(conn)
 end
