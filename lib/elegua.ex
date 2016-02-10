@@ -3,6 +3,7 @@ defmodule Elegua do
 	alias Elegua.Register
 	alias Elegua.Model
 	alias Elegua.Mailer
+    alias Elegua.Authenticate, as: Auth
 
 	def changeset(user, params) do
 		Model.changeset(user, params)
@@ -23,4 +24,8 @@ defmodule Elegua do
 	def verify(token) do
 		Register.verify(token)
 	end
+
+    def authenticate({:email, email}, password) do
+        Auth.authenticate({:email, email}, password)
+    end
 end
