@@ -19,4 +19,5 @@ defmodule Elegua do
   def login(conn, email, password), do: Session.create(conn, email, password)
   def current_user(conn), do: Session.current_user(conn)
   def logged_in?(conn), do: !!current_user(conn)
+  def logout(conn), do: Session.delete(conn)
 end

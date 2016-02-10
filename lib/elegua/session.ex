@@ -18,4 +18,8 @@ defmodule Elegua.Session do
     user_id = get_session(conn, :user_id)
     if user_id, do: @app_repo.get(@user_model, user_id)
   end
+
+  def delete(conn) do
+    delete_session(conn, :user_id)
+  end
 end
