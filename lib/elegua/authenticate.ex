@@ -3,6 +3,7 @@ defmodule Elegua.Authenticate do
   alias Ecto.Query
   alias Elegua.Config
   alias Elegua.Password
+  alias Elegua.Mailer
 
   @app_repo Config.app_repo
   @user_model Config.user_model
@@ -21,5 +22,10 @@ defmodule Elegua.Authenticate do
       nil -> :no_user
       _ -> Password.match_passwords(password, user)
     end
+  end
+
+  def reset_password({:email, email}, password) do
+    user = @app_repo.get_by(@user_model, email: downcase(email))
+    
   end
 end
