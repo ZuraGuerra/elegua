@@ -3,8 +3,8 @@ defmodule Elegua.Model do
 
   alias Elegua.Config
 
-  @required_fields Config.required_fields
-  @optional_fields [Config.verification_token_field, Config.is_verified_field]
+  @required_fields Config.base_required_fields
+  @optional_fields [Config.verification_token_field, Config.is_verified_field, Config.new_password_field]
   @verification_required_fields @required_fields ++ @optional_fields
 
   def changeset(user, params \\ :empty) do
