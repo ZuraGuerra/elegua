@@ -8,7 +8,7 @@ defmodule Elegua do
   def register(changeset, opts), do: Register.create(changeset, opts)
 
   def send_verification_email(to, from, subject, {content_type, content}) do
-	Mailer.send_verification_email(to, from, subject, {content_type, content})
+	Mailer.send(to, from, subject, {content_type, content})
   end
   def verify(token), do: Register.verify(token)
 
