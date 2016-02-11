@@ -1,6 +1,5 @@
 defmodule Elegua.Register do
   import Ecto.Changeset, only: [put_change: 3]
-  import Ecto.Query
   
   alias Elegua.{Config, Password, Model}
 
@@ -8,6 +7,7 @@ defmodule Elegua.Register do
   @verification_token_field Config.verification_token_field
   @is_verified_field Config.is_verified_field
   @app_repo Config.app_repo
+  @user_model Config.user_model
 
   def create(changeset) do
   	hashed_password = hash_pasword(changeset)
@@ -26,7 +26,7 @@ defmodule Elegua.Register do
   end
 
   def verify(token) do
-  	user = user_by_token(token)
+  	user = @app_repo.get_by(@user_model, verification_token: token)
   	params = %{Atom.to_string(@is_verified_field) => true}
   	changeset = Model.verification_changeset(user, params)
     @app_repo.update(changeset)
@@ -35,11 +35,6 @@ defmodule Elegua.Register do
   defp hash_pasword(changeset) do
   	password = changeset.params[Atom.to_string(@password_field)]
   	Password.hash(password)
-  end
-
-  defp user_by_token(token) do
-  	@app_repo.one from user in Config.user_model,
-  	where: user.verification_token == ^token
   end
 
 end
