@@ -1,10 +1,7 @@
 defmodule Elegua do
 
-  alias Elegua.Register
-  alias Elegua.Model
-  alias Elegua.Mailer
+  alias Elegua.{Register, Model, Mailer, Session}
   alias Elegua.Authenticate, as: Auth
-  alias Elegua.Session
 
   def changeset(user, params), do: Model.changeset(user, params)
   def register(changeset), do: Register.create(changeset)

@@ -2,9 +2,7 @@ defmodule Elegua.Register do
   import Ecto.Changeset, only: [put_change: 3]
   import Ecto.Query
   
-  alias Elegua.Config
-  alias Elegua.Password
-  alias Elegua.Model
+  alias Elegua.{Config, Password, Model}
 
   @password_field Config.password_field
   @verification_token_field Config.verification_token_field

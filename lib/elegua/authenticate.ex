@@ -1,9 +1,7 @@
 defmodule Elegua.Authenticate do
   import String, only: [downcase: 1]
-  alias Ecto.Query
-  alias Elegua.Config
-  alias Elegua.Password
-  alias Elegua.Mailer
+  import Ecto.Query
+  alias Elegua.{Config, Password, Mailer}
 
   @app_repo Config.app_repo
   @user_model Config.user_model
