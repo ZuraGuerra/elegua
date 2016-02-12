@@ -1,6 +1,6 @@
 defmodule Elegua do
 
-  alias Elegua.{Register, Model, Mailer, Session}
+  alias Elegua.{Register, Model, Mailer, Session, Recover}
   alias Elegua.Authenticate, as: Auth
 
   def changeset(user, params), do: Model.changeset(user, params)
@@ -17,4 +17,7 @@ defmodule Elegua do
   def current_user(conn), do: Session.current_user(conn)
   def logged_in?(conn), do: !!current_user(conn)
   def logout(conn), do: Session.delete(conn)
+
+  def new_password(email, password), do: Recover.new_password(email, password)
+  def change_password(token), do: Recover.change_password(token)
 end
