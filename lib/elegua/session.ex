@@ -9,7 +9,6 @@ defmodule Elegua.Session do
   def create(conn, email, password) do
     case Auth.authenticate({:email, email}, password) do
       {:ok, user} -> put_session(conn, :user_id, user.id)
-      error -> error
       _ -> :error
     end
   end
