@@ -33,11 +33,15 @@ defmodule Elegua.Recover do
 
   def change_password(token) do
     user = @app_repo.get_by(@user_model, verification_token: token)
-    password_params = %{to_string(@password) => user.new_password}
-    changeset = change(user, password_params)
-    case @app_repo.update(changeset) do
-      {:ok, user} -> user
-      {:error, changeset} -> :error 
+    case user do
+      nil -> {:error, :no_user}
+      _ ->
+        password_params = %{to_string(@password) => user.new_password}
+        changeset = change(user, password_params)
+        case @app_repo.update(changeset) do
+          {:ok, user} -> user
+          {:error, changeset} -> :error 
+        end
     end
   end
 end
