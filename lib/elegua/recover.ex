@@ -25,7 +25,7 @@ defmodule Elegua.Recover do
     }
     changeset = change(user, recovery_params)
     case @app_repo.update(changeset) do
-      {:ok, user} -> user
+      {:ok, user} -> {:ok, user}
       {:error, changeset} -> :error
     end
   end
