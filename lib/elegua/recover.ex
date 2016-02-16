@@ -38,7 +38,7 @@ defmodule Elegua.Recover do
         password_params = %{@password => user.new_password}
         changeset = change(user, password_params)
         case @app_repo.update(changeset) do
-          {:ok, user} -> user
+          {:ok, user} -> {:ok, user}
           {:error, changeset} -> :error 
         end
     end
