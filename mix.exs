@@ -33,7 +33,7 @@ defmodule Elegua.Mixfile do
       {:mailgun, "~> 0.1.2"},
       {:comeonin, "~> 2.1"},
       {:plug, "~> 1.1"},
-      {:ecto, "~> 1.1"}
+      {:ecto, ">= 2.0.0"}
     ]
   end
 
